@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0dc35567fa7e6e40a5a042d216fd24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  pausePanel: {fileID: 252072016}
   gameOverPanel: {fileID: 262301639}
+  pausePanel: {fileID: 252072016}
 --- !u!4 &110136113
 Transform:
   m_ObjectHideFlags: 0
@@ -3538,6 +3538,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataPemain: {fileID: 11400000, guid: 3b2cd9506918d924f90bda94dd1a813f, type: 2}
   currentHP: 100
+  bulletPrefab: {fileID: 5436600623798232552, guid: d82e81fa7a29478489fdbc56d0bb1193, type: 3}
+  bulletSpawnPoint: {fileID: 0}
 --- !u!114 &1775706134
 MonoBehaviour:
   m_ObjectHideFlags: 0
