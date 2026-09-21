@@ -10,10 +10,11 @@ public class Enemy : MonoBehaviour
 [SerializeField] private float jarakDeteksi = 6f;
 [SerializeField] private float jarakSerang = 1f;
 [SerializeField] private float jarakBatas = 0.5f;
-// State definitions for enemy behavior
+
 private enum StateZombie { Idle, Patrol, Walk, Chase, Attack, Die }
 private StateZombie currentState = StateZombie.Idle;
 private float waktuSerangTerakhir;
+
     protected virtual void Start()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -25,32 +26,26 @@ private float waktuSerangTerakhir;
 
     void Update()
     {
-       
-
         periksaTransisi();
 
-        // switch (currentState)
-        // {
-        //     case StateZombie.Idle:
-        //         // Do nothing while idle
-        //         break;
-        //     case StateZombie.Patrol:
-        //         perilakuPatroli();
-        //         break;
-        //     case StateZombie.Walk:
-        //         // Could implement walk logic here
-        //         break;
-        //     case StateZombie.Chase:
-        //         Kejar();
-        //         break;
-        //     case StateZombie.Attack:
-        //         Serang();
-        //         break;
-        //     case StateZombie.Die:
-        //         // Die handled in KenaDamage/Mati
-        //         break;
-        // }
-
+        switch (currentState)
+        {
+            case StateZombie.Idle:
+                break;
+            case StateZombie.Patrol:
+                perilakuPatroli();
+                break;
+            case StateZombie.Walk:
+                break;
+            case StateZombie.Chase:
+                Kejar();
+                break;
+            case StateZombie.Attack:
+                Serang();
+                break;
+            case StateZombie.Die:
+                break;
+        }
     }
 
     public void Kejar()
@@ -68,6 +63,7 @@ private float waktuSerangTerakhir;
     {
         Debug.Log("Enemy menyerang!");
     }
+
     void perilakuPatroli()
     {   
         Kejar();
@@ -78,7 +74,8 @@ private float waktuSerangTerakhir;
     { 
         Debug.Log("Enemy sedang memeriksa sekitarnya.");
     }
-     void periksaTransisi()
+
+    void periksaTransisi()
     {
         if (player == null)
         {
@@ -108,9 +105,6 @@ private float waktuSerangTerakhir;
         return Vector2.Distance(transform.position, player.position);
     }
 
-
-
-     
     public void KenaDamage(int jumlah)
     {
         hp -= jumlah;
@@ -128,4 +122,3 @@ private float waktuSerangTerakhir;
         Destroy(gameObject);
     }
 }
-
