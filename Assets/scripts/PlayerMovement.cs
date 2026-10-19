@@ -1,39 +1,45 @@
 using UnityEngine;
-using UnityEngine.InputSystem; // WAJIB untuk Input System
+using UnityEngine.InputSystem; 
 public class PlayerMovement : MonoBehaviour
 {
     public float kecepatan = 5f;
-    private Vector2 arahGerak; // nilai dari action "Move"
-                               // Dipanggil OTOMATIS oleh komponen Player Input
-                               // saat action "Move" pada asset InputSystem_Actions aktif.
-                               // Nama method WAJIB: On + nama action -> OnMove
-    private int skor = 0;     // variabel untuk menyimpan skor
+    private Vector2 arahGerak; 
+    private int skor = 0;     
     void OnMove(InputValue value)
     {
-        // TODO: ambil nilai Vector2 dari input, simpan ke arahGerak
+        
         arahGerak = value.Get<Vector2>();
     }
     void OnTriggerEnter2D(Collider2D other)
-{
- // TODO: cek apakah yang disentuh punya tag "Coin"
- if (other.CompareTag("Coin"))
- {
- // TODO: hancurkan koin yang tersentuh
- Destroy(other.gameObject);
+    {
+        bool isCoin = other.CompareTag("Coin");
+        Item item = other.GetComponent<Item>();
+        if (!isCoin && item == null)
+            return;
 
- GameManager gameManager = FindFirstObjectByType<GameManager>();
- if (gameManager != null)
- {
+        InventoryManager inventory = FindFirstObjectByType<InventoryManager>();
+        if (inventory == null)
+        {
+            Debug.LogError("InventoryManager tidak ditemukan. Item tidak diambil.", this);
+            return;
+        }
 
- // TODO: panggil fungsi AmbilKoin() dari GameManager
- gameManager.AmbilKoin();
- }
- }
-}
+        ItemDetails details = item != null ? item.Details : inventory.DefaultCoinItem;
+        if (!inventory.TryAddItem(details))
+            return;
+
+        if (isCoin)
+        {
+            GameManager gameManager = FindFirstObjectByType<GameManager>();
+            if (gameManager != null)
+                gameManager.AmbilKoin();
+        }
+
+        Destroy(other.gameObject);
+    }
     void Update()
     {
-        // TODO: gerakkan objek memakai arahGerak.
-        // Ingat kalikan kecepatan DAN Time.deltaTime!
+
         Vector3 arah = new Vector3(arahGerak.x, arahGerak.y, 0);
         transform.position += arah * kecepatan * Time.deltaTime;
     }
