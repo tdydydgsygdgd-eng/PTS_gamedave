@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3301942165447617713}
   - component: {fileID: 4063276829516411481}
+  - component: {fileID: 4063276829516411482}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 7482667652216324306, guid: 4489664cdf0b4a0786944eee202c00a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,3 +88,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4063276829516411482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5681530727943673813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1100000000000000000000000000001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleSpriteAnimator
+  idleFrames:
+  - {fileID: 7482667652216324306, guid: 4489664cdf0b4a0786944eee202c00a9, type: 3}
+  - {fileID: 7482667652216324306, guid: ffa8ef64bbf740469ff3ae500ca3fc58, type: 3}
+  - {fileID: 7482667652216324306, guid: 7832c5170ba246d891ddd8326674f935, type: 3}
+  - {fileID: 7482667652216324306, guid: e0f48f0fdf844cb2aa19dadfa6b0a0d0, type: 3}
+  - {fileID: 7482667652216324306, guid: 9d79298cf75b494eb0babde8677db272, type: 3}
+  - {fileID: 7482667652216324306, guid: 946b821a8c234caea9a978557b306601, type: 3}
+  walkFrames:
+  - {fileID: 7482667652216324306, guid: 3ecae7d6507341cc84cc9e1a8e6e04cd, type: 3}
+  - {fileID: 7482667652216324306, guid: 6a6481a29df84313a0867b11964d5d93, type: 3}
+  - {fileID: 7482667652216324306, guid: 7da12268707b46fab6bc8cf052f72baf, type: 3}
+  - {fileID: 7482667652216324306, guid: 0a61b0d38c874c6fb38f54b389a3b414, type: 3}
+  - {fileID: 7482667652216324306, guid: 3a5634d3b0844f4e8f43b60cb0724645, type: 3}
+  - {fileID: 7482667652216324306, guid: e6b0e4ce2bfc49b3bc0a7a2ddea84dbb, type: 3}
+  - {fileID: 7482667652216324306, guid: 876cc7f55b364f06a60aad8d564eb341, type: 3}
+  - {fileID: 7482667652216324306, guid: 5073417548f241f9bb83ff8186d7d83e, type: 3}
+  attackFrames:
+  - {fileID: 7482667652216324306, guid: bcfc95883d9d45698c0ca68d33f6b58e, type: 3}
+  - {fileID: 7482667652216324306, guid: f3bdc5fce48c4aa0ae69abd09bbe20ac, type: 3}
+  - {fileID: 7482667652216324306, guid: ef5acd8900db4ee495d0b1723c408aa9, type: 3}
+  - {fileID: 7482667652216324306, guid: b67f33d70835443ca378702ed886c0bb, type: 3}
+  - {fileID: 7482667652216324306, guid: c72ec9b3f24c47fcb7e1d554709d6eee, type: 3}
+  - {fileID: 7482667652216324306, guid: a867379efcd14b329f32d70f2ecf3ac7, type: 3}
+  deathFrames: []
+  framesPerSecond: 10
+  autoFlip: 1
